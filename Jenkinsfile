@@ -7,7 +7,7 @@ pipeline {
         stage ('Construir entorno'){
             agent {
                 docker {
-                    image 'node:20.11.1-alpine3.19'
+                    image 'node:20.11-alpine3.19'
                     reuseNode true
                 }
             }
