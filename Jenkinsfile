@@ -1,8 +1,4 @@
-pipeline {
-    agent any
-    options {
-        timeout(time: 3, unit: 'SECONDS')
-    }
+pipeline {    
     stages {
         stage ('Construir entorno'){
             agent {
