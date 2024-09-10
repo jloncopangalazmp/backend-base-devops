@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
         stage('ejemplo1'){
-            step{
+            steps {
                 sh 'echo "hola compa"'
             }
         }
