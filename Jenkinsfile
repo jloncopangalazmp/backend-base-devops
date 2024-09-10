@@ -1,7 +1,7 @@
 pipeline {   
     agent any 
     stages {
-        stage ('Construir entorno'){
+        stage ('Construir entorno') {
             agent {
                 docker {
                     image 'node:20.11.1-alpine3.19'
