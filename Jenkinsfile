@@ -9,15 +9,18 @@ pipeline {
                 }
             }
             stages {
-                stage('Instalar dependencias') {            
+                stage ('Instalar dependencias') {            
                     steps {
                         sh 'npm install'
-                    }
+                    }                   
+                }
+            }
+            stages {
+                stage ('Ejecucion de test') {
                     steps {
                         sh 'npm run test'
                     }
                 }
-
             }
 
         }
