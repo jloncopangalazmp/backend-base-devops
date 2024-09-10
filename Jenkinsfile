@@ -4,11 +4,33 @@ pipeline {
         timeout(time: 3, unit: 'SECONDS')
     }
     stages {
-        stage('ejemplo1'){
-            steps {
-                sh 'echo "hola compa"'
+        stage ('Construir entorno'){
+            agent {
+                docker {
+                    image 'node:20.11.1-alpine3.19'
+                    reuseNode true
+                }
             }
+            stages {
+                stage('Instalar dependencias'){            
+                    steps {
+                        sh 'npm install'
+                    }
+                    steps {
+                        sh 'npm run test'
+                    }
+                }
+
+            }
+
         }
+        stage ('Ejecutar') {
+            steps {
+                sh 'docker build -t backend-base-devops:lastest .'
+            }
+
+        }
+        
 
     }
 }
