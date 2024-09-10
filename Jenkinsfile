@@ -1,4 +1,5 @@
-pipeline {    
+pipeline {   
+    agent any 
     stages {
         stage ('Construir entorno'){
             agent {
